@@ -1,0 +1,5 @@
+sceneSetups:
+- path: Assets/Scenes/map_day.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
