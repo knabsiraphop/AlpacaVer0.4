@@ -6,6 +6,8 @@ public class Axe : MonoBehaviour
 {
     // Start is called before the first frame update
     CharacterController character;
+    bool count;
+    float time;
     void Start()
     {
         character = gameObject.GetComponent<CharacterController>();
@@ -14,15 +16,25 @@ public class Axe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (count)
+        {
+            time = time + Time.deltaTime;
+        }
+
+        if(time > 3)
+        {
+            count = false;
+            time = 0;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         print(collision.gameObject.tag);
-        if (collision.gameObject.tag == "Alpaca")
+        if (collision.gameObject.tag == "Alpaca" && !count)
         {
             collision.gameObject.GetComponent<asasdasd>().addHit();
+            count = true;
         }
     }
 
